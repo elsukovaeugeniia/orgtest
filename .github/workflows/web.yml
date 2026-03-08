@@ -37,8 +37,6 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Update Browserslist DB (legacy mode)
-        run: npx update-browserslist-db@latest --legacy-peer-deps
       - name: Install Playwright Browsers
         uses: microsoft/playwright-github-action@v1
       - name: Run unit tests with coverage
