@@ -37,9 +37,11 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Install Playwright browsers and system dependencies
+      - name: Update Browserslist DB (fix caniuse-lite warning)
+        run: npx update-browserslist-db@latest
+      - name: Install Playwright browsers with system dependencies
         run: npx playwright install chromium --with-deps
-      - name: Run unit tests with coverage
+      - name: Run unit and E2E tests with coverage
         run: yarn test --coverage --watchAll=false
       - name: Upload test coverage report
         uses: actions/upload-artifact@v4

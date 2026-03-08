@@ -17,7 +17,7 @@ describe('Credit Card Validator form', () => {
       });
     });
 
-    browser = await chromium.launch({ headless: false });
+    browser = await chromium.launch({ headless: true });
     page = await browser.newPage();
     await page.goto(baseUrl, { waitUntil: 'networkidle' });
   }, 60000); // Таймаут для beforeAll
